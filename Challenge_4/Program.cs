@@ -44,7 +44,7 @@ namespace Challenge_4
                 {
                     foreach(KeyValuePair<$"{badge.Id}, {badge.Doors}">)
                     {
-                        Console.WriteLine("")
+                        Console.WriteLine("");
                     }
 
                 }

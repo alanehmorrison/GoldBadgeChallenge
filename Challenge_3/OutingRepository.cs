@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge_3
 {
-    class OutingRepository
+    public class OutingRepository
     {
         List<Outings> _outingslist = new List<Outings>();
 
@@ -31,12 +31,16 @@ namespace Challenge_3
             return total; 
         }
 
-        public decimal TotalAllOutingsByGenre()
-        {
+        public decimal TotalAllOutingsByType(Event userinput)
+        { 
             decimal total = 0;
             foreach (Outings outing in _outingslist)
             {
-                total = total + outing.Total;
+                if(outing.Type == userinput)
+                {
+                    total = total + outing.Total;
+                }
+                
             }
 
             return total;

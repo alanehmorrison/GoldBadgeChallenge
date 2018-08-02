@@ -11,8 +11,10 @@ namespace Challenge_3
         Golf = 1, Bowling, AmusementPark, Concert, Undefined
     }
 
-    public class Program
+    public class Program 
+
     {
+
         public static void Main(string[] args)
         {
             Outings one = new Outings((Event)1, 5, "02/18/2018", 10, 50);
@@ -62,7 +64,7 @@ namespace Challenge_3
                     }
                 }
 
-                if(theAnswer == "2")
+                if (theAnswer == "2")
                 {
                     Console.WriteLine("Enter the type of event:");
                     int usetype = int.Parse(Console.ReadLine());
@@ -80,27 +82,48 @@ namespace Challenge_3
                     _outsRepo.AddOutingToList(usercake);
                 }
 
-                if(theAnswer == "3")
+                if (theAnswer == "3")
                 {
                     Console.WriteLine($"The total for all outings is: {_outsRepo.TotalAllOutings()}");
                     Console.ReadLine();
                 }
 
-                if(theAnswer == "4")
+                if (theAnswer == "4")
                 {
-                    Console.WriteLine("What type of event would you like to see the totals for?\n" +
-                        "Press 1 for Golf\n" +
-                        "Press 2 for Bowling\n" +
-                        "Press 3 for Amusement Park\n" +
-                        "");
-                    string userinput = Console.ReadLine();
-                    if(userinput == "1")
+                    while (true)
                     {
-                        Console.WriteLine($"The total for this type is: {_outsRepo.TotalAllOutings()}");
-                    }
-                    if(userinput == "2")
-                    {
-                        Console.WriteLine($"The total for this type is: {_outsRepo.TotalAllOutings()}");
+                        Console.WriteLine("What type of event would you like to see the totals for?\n" +
+                             "Press 1 for Golf.\n" +
+                             "Press 2 for Bowling.\n" +
+                             "Press 3 for Amusement Park.\n" +
+                             "Press 4 for Concert.\n" +
+                             "Press 5 for Undefined Event. ");
+                        string userinput = Console.ReadLine();
+
+                        if (userinput == "1")
+                        {
+                            Console.WriteLine($"The total amount spent on golf outings is: {_outsRepo.TotalAllOutingsByType(Event.Golf)}");
+                        }
+
+                        if (userinput == "2")
+                        {
+                            Console.WriteLine($"The total amount spent on bowling outings is {_outsRepo.TotalAllOutingsByType(Event.Bowling)}");
+                        }
+
+                        if (userinput == "3")
+                        {
+                            Console.WriteLine($"The total amount spent on Amusement Park outings is: {_outsRepo.TotalAllOutingsByType(Event.Concert)}");
+                        }
+
+                        if (userinput == "4")
+                        {
+                            Console.WriteLine($"The total amount spent on Concert outings is: {_outsRepo.TotalAllOutingsByType(Event.Concert)}");
+                        }
+
+                        if (userinput == "5")
+                        {
+                            Console.WriteLine($"The total amount spent on Undefined outings is: {_outsRepo.TotalAllOutingsByType(Event.Undefined)}");
+                        }
                     }
                 }
             }
